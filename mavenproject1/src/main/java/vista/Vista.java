@@ -102,20 +102,25 @@ public class Vista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    //try se ejecutar el bloque de codigo dentro de try{
+   try {
+    String cadena = jTextField1.getText();
     
-        try {
-        String cadena = jTextField1.getText();
-        //condicionar si,no  el if si se cumple ejecuta lo que se declara si no se cumple se ejecuta else (no)
+    // Verificar si la cadena está vacía
+    if (cadena.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "La cadena no puede estar vacía.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+    } else {
+        // Si no está vacía, verificar si es un palíndromo
         if (Palindromo.validaPalindromo(cadena)) {
             JOptionPane.showMessageDialog(this, "Correcto: La cadena es un palíndromo.");
         } else {
             JOptionPane.showMessageDialog(this, "Incorrecto: La cadena no es un palíndromo.");
         }
-    //catch capturar el error si ocurre en el bloque try.
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(this, "No se pudo ejecutar", "jbutton1", JOptionPane.ERROR_MESSAGE);
     }
+} catch (Exception e) {
+    // Capturar cualquier excepción que ocurra durante la ejecución
+    JOptionPane.showMessageDialog(this, "No se pudo ejecutar", "Error", JOptionPane.ERROR_MESSAGE);
+}
+
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
